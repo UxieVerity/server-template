@@ -1,0 +1,51 @@
+{
+  "name": "server-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack --progress --mode development --watch",
+    "listen": "tsc server/server.ts && node server/server.js",
+    "serve": "webpack --progress && tsc server/server.ts && node server/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.1",
+    "eslint": "^5.15.1",
+    "eslint-plugin-html": "^5.0.3",
+    "html-webpack-plugin": "^3.2.0",
+    "imagemin": "^6.1.0",
+    "img-loader": "^3.0.1",
+    "jquery": "^3.3.1",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
+    "node-sass": "^4.11.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "scss-loader": "^0.0.1",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1",
+    "yarn": "^1.16.0"
+  },
+  "dependencies": {
+    "@types/jquery": "^3.3.30",
+    "popper.js": "^1.15.0",
+    "sql-template-strings": "^2.2.2",
+    "sqlite": "^3.0.3",
+    "ts-loader": "^6.0.4",
+    "ts-vue-plugin": "^0.1.2",
+    "typescript": "^3.5.3",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.1",
+    "vue-router": "^3.0.7",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.10",
+    "vuex": "^3.1.1"
+  }
+}

@@ -34,7 +34,9 @@
     "yarn": "^1.16.0"
   },
   "dependencies": {
+    "@types/happypack": "^5.0.0",
     "@types/jquery": "^3.3.30",
+    "happypack": "^5.0.1",
     "popper.js": "^1.15.0",
     "sql-template-strings": "^2.2.2",
     "sqlite": "^3.0.3",

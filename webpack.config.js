@@ -1,3 +1,4 @@
+const HappyPack = require("happypack");
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const htmlWebpackPlugin = require("html-webpack-plugin");
@@ -10,10 +11,19 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.vue$/, loader: "vue-loader" },
+      { test: /\.vue$/, use: ["vue-loader"] },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        use: ["happypack/loader?id=css"]
+      },
+      {
+        test: /\.scss$/,
+        use: ["vue-style-loader", "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.js$/,
+        use: ["happypack/loader?id=js"],
+        exclude: [path.resolve(__dirname, "node_modules")]
       },
       {
         test: /\.ts$/,
@@ -22,16 +32,8 @@ module.exports = {
         options: { appendTsSuffixTo: [/\.vue$/] }
       },
       {
-        test: /\.js$/,
-        use: "babel-loader"
-      },
-      {
-        test: /\.scss$/,
-        use: ["vue-style-loader", "css-loader", "sass-loader"]
-      },
-      {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        use: ["url-loader?limit=10000", "img-loader"]
+        use: ["happypack/loader?id=img"]
       }
     ]
   },
@@ -42,10 +44,28 @@ module.exports = {
       inject: "body",
       exclude: path.resolve(__dirname, "./node_modules")
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new HappyPack({
+      id: "css",
+      loaders: ["style-loader", "css-loader"]
+    }),
+    new HappyPack({
+      id: "js",
+      loaders: ["babel-loader"]
+    }),
+    new HappyPack({
+      id: "img",
+      loaders: ["url-loader?limit=10000", "img-loader"]
+    })
   ],
   resolve: {
+    mainFields: ["main"],
     extensions: [".ts", ".js"],
     alias: { vue$: "vue/dist/vue.esm.js" }
+  },
+  watchOptions: {
+    ignored: /node_modules/,
+    aggregateTimeout: 1000,
+    poll: 1
   }
 };

@@ -6,7 +6,7 @@
   "scripts": {
     "webpack": "webpack --progress --mode development --watch",
     "listen": "tsc server/server.ts && node server/server.js",
-    "serve": "webpack --progress && tsc server/server.ts && node server/server.js"
+    "serve": "webpack --progress --mode development && tsc server/server.ts && node server/server.js"
   },
   "author": "",
   "license": "ISC",

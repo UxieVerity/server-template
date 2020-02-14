@@ -31,7 +31,7 @@
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1",
-    "yarn": "^1.16.0"
+    "yarn": "^1.22.0"
   },
   "dependencies": {
     "@types/happypack": "^5.0.0",
